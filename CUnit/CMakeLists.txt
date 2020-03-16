@@ -27,17 +27,17 @@ configure_file(CUnit/CUnit.h.in ${CMAKE_CURRENT_LIST_DIR}/CUnit/CUnit.h @ONLY)
 
 
 # Package Generator  #######################################################
-set(CPACK_GENERATOR TGZ DEB)
-set(CPACK_PACKAGE_NAME "cunit")
-set(CPACK_PACKAGE_DESCRIPTION "CUnit")
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "The CUnity fork of the CUnit unit test framework")
-set(CPACK_PACKAGE_VERSION_MAJOR "${CUNIT_VERSION_MAJOR}")
-set(CPACK_PACKAGE_VERSION_MINOR "${CUNIT_VERSION_MINOR}")
-set(CPACK_PACKAGE_VERSION_PATCH "${CUNIT_VERSION_PATCH}")
-set(CPACK_PACKAGE_VENDOR "CUnity")
-set(CPACK_PACKAGE_CONTACT "inorton@gmail.com")
-set(CPACK_PACKAGE_FILE_NAME "cunit-${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}.${CPACK_PACKAGE_VERSION_PATCH}")
-include (CPack)
+#set(CPACK_GENERATOR TGZ DEB)
+#set(CPACK_PACKAGE_NAME "cunit")
+#set(CPACK_PACKAGE_DESCRIPTION "CUnit")
+#set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "The CUnity fork of the CUnit unit test framework")
+#set(CPACK_PACKAGE_VERSION_MAJOR "${CUNIT_VERSION_MAJOR}")
+#set(CPACK_PACKAGE_VERSION_MINOR "${CUNIT_VERSION_MINOR}")
+#set(CPACK_PACKAGE_VERSION_PATCH "${CUNIT_VERSION_PATCH}")
+#set(CPACK_PACKAGE_VENDOR "CUnity")
+#set(CPACK_PACKAGE_CONTACT "inorton@gmail.com")
+#set(CPACK_PACKAGE_FILE_NAME "cunit-${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}.${CPACK_PACKAGE_VERSION_PATCH}")
+#include (CPack)
 
 FILE(GLOB Basic Sources/Basic/*.c)
 FILE(GLOB Automated Sources/Automated/*.c)
@@ -71,27 +71,27 @@ target_include_directories(cunit
 
 
 # for internal test program
-add_executable(cunit_test
-  ${cunit_srcs}
-  ${Test}
-  )
-
-add_test(NAME 
-  cunit_test COMMAND $<TARGET_FILE:cunit_test>)
-
-target_include_directories(cunit_test
-  PRIVATE
-    Sources/Framework
-    Sources/Test
-    ${CMAKE_CURRENT_LIST_DIR}
-  )
-target_link_libraries(cunit_test
-  ${cunit_libs})
-target_compile_definitions(cunit_test
-  PRIVATE
-    CUNIT_BUILD_TESTS
-    MEMTRACE
-    CUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS)
+#add_executable(cunit_test
+#  ${cunit_srcs}
+#  ${Test}
+#  )
+#
+#add_test(NAME 
+#  cunit_test COMMAND $<TARGET_FILE:cunit_test>)
+#
+#target_include_directories(cunit_test
+#  PRIVATE
+#    Sources/Framework
+#    Sources/Test
+#    ${CMAKE_CURRENT_LIST_DIR}
+#  )
+#target_link_libraries(cunit_test
+#  ${cunit_libs})
+#target_compile_definitions(cunit_test
+#  PRIVATE
+#    CUNIT_BUILD_TESTS
+#    MEMTRACE
+#    CUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS)
 
 if(CUNIT_CMAKE_INSTALL STREQUAL yes)
   install(DIRECTORY CUnit/ DESTINATION include/CUnit)
