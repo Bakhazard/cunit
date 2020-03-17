@@ -8,5 +8,5 @@ if(CMAKE_C_COMPILER_ID STREQUAL "GNU")
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror -Werror=strict-prototypes")
 endif()
 
-add_subdirectory(CUnit)
+add_subdirectory(cunit)
 #add_subdirectory(Examples)

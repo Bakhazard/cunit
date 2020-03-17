@@ -23,7 +23,7 @@ endif()
 
 FILE(GLOB headerfiles *.h)
 
-configure_file(CUnit/CUnit.h.in ${CMAKE_CURRENT_LIST_DIR}/CUnit/CUnit.h @ONLY)
+configure_file(CUnit/CUnit.h.in ${CMAKE_CURRENT_LIST_DIR}/cunit/CUnit.h @ONLY)
 
 
 # Package Generator  #######################################################
